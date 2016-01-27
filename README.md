@@ -10,6 +10,6 @@ if pong is slower than pongTimeout value, trigger pong_abnormal event; if pong i
   //if you don't pass PongTimeout, the default value is 6000
   var socket = io('http://localhost', {pongTimeout: 5000});
   socket.on('pong_abnormal', function(){});
-  socket.on('pong_normal', function(data){});
+  socket.on('pong_normal', function(){});
 </script>
 ```
