@@ -1,4 +1,5 @@
 # socket.io-client-pongTimeout
+At bad network, you might want to show "the connection is unstable"
 If pong response is slower than pongTimeout value, trigger pong_abnormal event; If pong response is back to normal, trigger pong_normal event
 
 
