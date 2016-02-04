@@ -1,7 +1,7 @@
 # socket.io-client-pongTimeout
 At bad network, you might want to show "the connection is unstable"
 
-If pong response is slower than pongTimeout value, trigger pong_abnormal event; If pong response is back to normal, trigger pong_normal event
+If pong response is slower than pongTimeout value, trigger error:pong_abnormal event; If pong response is back to normal, trigger error:pong_normal event
 
 
 ## How to use
@@ -11,7 +11,12 @@ If pong response is slower than pongTimeout value, trigger pong_abnormal event; 
 <script>
   //if you don't pass PongTimeout, the default value is 6000
   var socket = io('http://localhost', {pongTimeout: 5000});
-  socket.on('pong_abnormal', function(){});
-  socket.on('pong_normal', function(){});
+  socket.on('error', function(info){
+      if (info === 'pong_abnormal') {
+        //do something
+      } else if (info === 'pong_normal') {
+        //do something
+      }
+  });
 </script>
 ```
