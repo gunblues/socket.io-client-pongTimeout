@@ -659,9 +659,7 @@ var events = {
   reconnect_attempt: 1,
   reconnect_failed: 1,
   reconnect_error: 1,
-  reconnecting: 1,
-  pong_abnormal: 1,
-  pong_normal: 1
+  reconnecting: 1
 };
 
 /**
@@ -2189,14 +2187,14 @@ Socket.prototype.close = function () {
 
 Socket.prototype.onPongAbnormal= function (err) {
   debug('socket pong abnormal');
-  this.emit('data', '4["pong_abnormal"]');
-  this.emit('message', '4["pong_abnormal"]');
+  this.emit('data', '4"pong_abnormal"');
+  this.emit('message', '4"pong_abnormal"');
 };
 
 Socket.prototype.onPongNormal= function (err) {
   debug('socket pong normal');
-  this.emit('data', '4["pong_normal"]');
-  this.emit('message', '4["pong_normal"]');
+  this.emit('data', '4"pong_normal"');
+  this.emit('message', '4"pong_normal"');
 };
 
 /**
